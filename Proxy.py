@@ -177,7 +177,6 @@ while True:
           if not chunk:
               break
           response_data += chunk
-      print("Received response from origin server.")
       # ~~~~ END CODE INSERT ~~~~
       # Send the response to the client
       # ~~~~ INSERT CODE ~~~~
