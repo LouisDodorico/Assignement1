@@ -174,13 +174,13 @@ while True:
       response_data = b""
       while True:
         chunk = originServerSocket.recv(BUFFER_SIZE)
-      if chunk == "":
+      if chunk == b"":
         break
       response_data += chunk
       # ~~~~ END CODE INSERT ~~~~
-
       # Send the response to the client
       # ~~~~ INSERT CODE ~~~~
+      clientSocket.sendall(response_data)
       # ~~~~ END CODE INSERT ~~~~
 
       # Create a new file in the cache for the requested file.
