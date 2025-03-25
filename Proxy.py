@@ -173,10 +173,11 @@ while True:
       # ~~~~ INSERT CODE ~~~~
       response_data = b""
       while True:
-        chunk = originServerSocket.recv(BUFFER_SIZE)
-      if chunk == b"":
-        break
-      response_data += chunk
+          chunk = originServerSocket.recv(BUFFER_SIZE)
+          if not chunk:
+              break
+          response_data += chunk
+      print("Received response from origin server.")
       # ~~~~ END CODE INSERT ~~~~
       # Send the response to the client
       # ~~~~ INSERT CODE ~~~~
@@ -192,6 +193,7 @@ while True:
 
       # Save origin server response in the cache file
       # ~~~~ INSERT CODE ~~~~
+      cacheFile.write(response_data)
       # ~~~~ END CODE INSERT ~~~~
       cacheFile.close()
       print ('cache file closed')
